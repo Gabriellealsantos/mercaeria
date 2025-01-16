@@ -29,7 +29,7 @@
                <children>
                   <ImageView fitHeight="336.0" fitWidth="337.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/LogoV.png" />
+                        <Image url="@../assets/LogoV.png" />
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Bem vindo ao Sistema" textAlignment="CENTER" textFill="WHITE">
@@ -50,14 +50,14 @@
                         <Font name="System Bold" size="22.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txUsuario" layoutX="39.0" layoutY="117.0" prefHeight="35.0" prefWidth="245.0" promptText="usuário" stylesheets="@assets/style.css" />
-                  <PasswordField fx:id="txSenha" layoutX="39.0" layoutY="174.0" prefHeight="35.0" prefWidth="245.0" promptText="senha" stylesheets="@assets/style.css" />
-                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" styleClass="btn-cancelar" stylesheets="@assets/style.css" text="Cancelar" textFill="WHITE">
+                  <TextField fx:id="txUsuario" layoutX="39.0" layoutY="117.0" prefHeight="35.0" prefWidth="245.0" promptText="usuário" stylesheets="@../assets/style.css" />
+                  <PasswordField fx:id="txSenha" layoutX="39.0" layoutY="174.0" prefHeight="35.0" prefWidth="245.0" promptText="senha" stylesheets="@../assets/style.css" />
+                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" styleClass="btn-cancelar" stylesheets="@../assets/style.css" text="Cancelar" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button defaultButton="true" layoutX="39.0" layoutY="232.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="120.0" styleClass="btn-login" stylesheets="@assets/style.css" text="Entrar" textFill="WHITE">
+                  <Button defaultButton="true" layoutX="39.0" layoutY="232.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="120.0" styleClass="btn-login" stylesheets="@../assets/style.css" text="Entrar" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>

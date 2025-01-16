@@ -20,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        loader = new FXMLLoader(App.class.getResource("controller/Login.fxml"));
+        loader = new FXMLLoader(App.class.getResource("controller/gui/Login.fxml"));
         scene = new Scene(loader.load(), 800, 600);
         stage.setScene(scene);
         stage.show();

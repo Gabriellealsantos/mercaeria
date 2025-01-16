@@ -1,19 +1,14 @@
-/**
- * Sample Skeleton for 'Login.fxml' Controller Class
- */
-
 package br.edu.ifba.saj.fwads.controller;
 
-import br.edu.ifba.saj.fwads.App;
-import br.edu.ifba.saj.fwads.exception.LoginInvalidoException;
-import br.edu.ifba.saj.fwads.model.Usuario;
-import br.edu.ifba.saj.fwads.negocio.ValidaUsuario;
+import br.edu.ifba.saj.fwads.model.entities.Cliente;
+import br.edu.ifba.saj.fwads.model.exception.LoginInvalidoException;
+import br.edu.ifba.saj.fwads.model.service.ValidaCliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 
 public class LoginController {
 
@@ -25,21 +20,24 @@ public class LoginController {
 
     @FXML
     void entrar(ActionEvent event) {
-        ValidaUsuario validaUsuario = new ValidaUsuario();
         try {
-            Usuario usuario = validaUsuario.validaLogin(txUsuario.getText(), txSenha.getText());
-            App.setRoot("controller/Master.fxml");
-            MasterController controller =  (MasterController)App.getController();
-            controller.setEmail(usuario.getEmail());
+            // Valida o login com o serviço ValidaCliente
+            Cliente cliente = new ValidaCliente().validaLogin(txUsuario.getText(), txSenha.getText());
+
+            // Carrega a próxima tela e configura o MasterController
+
+
+
         } catch (LoginInvalidoException e) {
+            // Exibe alerta de erro no login
             new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
         }
     }
 
     @FXML
     void limparCampos(ActionEvent event) {
-        txUsuario.setText("");
-        txSenha.setText("");
+        // Limpa os campos de entrada
+        txUsuario.clear();
+        txSenha.clear();
     }
-
 }

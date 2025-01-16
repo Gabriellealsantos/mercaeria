@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.fwads.exception;
+package br.edu.ifba.saj.fwads.model.exception;
 
 public class LoginInvalidoException extends Exception {
     public LoginInvalidoException(String msg){
