@@ -1,0 +1,69 @@
+package br.edu.ifba.saj.fwads.model.entities;
+
+import br.edu.ifba.saj.fwads.model.entities.enums.Status;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Venda {
+
+    private Integer id;
+    private LocalDateTime data;
+    private Double total;
+    private Status status;
+
+    private Cliente cliente;
+
+    private List<Produto> produtos = new ArrayList<>();
+
+    public Venda(Integer id, LocalDateTime data, Cliente cliente, Double total) {
+        this.id = id;
+        this.data = data;
+        this.cliente = cliente;
+        this.total = total;
+        this.status = status.PENDENTE;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+
+}

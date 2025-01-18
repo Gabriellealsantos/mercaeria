@@ -14,17 +14,20 @@ public class Cliente {
     private String sexo;
 
     private Endereco endereco;
+    private Carrinho carrinho;
 
     private List<Papel> papeis = new ArrayList<>();
+    private List<Venda> vendas = new ArrayList<>();
 
-    public Cliente(Integer id, String nome, String cpf, String email, Endereco endereco, String senha, String sexo) {
+    public Cliente(Integer id, String nome, String cpf, String email, String senha, String sexo, Endereco endereco, Carrinho carrinho) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
-        this.endereco = endereco;
         this.senha = senha;
         this.sexo = sexo;
+        this.endereco = endereco;
+        this.carrinho = carrinho;
     }
 
     public Integer getId() {
@@ -59,14 +62,6 @@ public class Cliente {
         this.email = email;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -83,8 +78,36 @@ public class Cliente {
         this.sexo = sexo;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
+    }
+
+    public void setPapeis(List<Papel> papeis) {
+        this.papeis = papeis;
+    }
+
     public List<Papel> getPapeis() {
         return papeis;
+    }
+
+    public void adicionarVenda(Venda venda) {
+        this.vendas.add(venda);
+    }
+
+    public void removerVenda(Venda venda) {
+        this.vendas.remove(venda);
     }
 
     @Override
