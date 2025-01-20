@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Venda {
 
+    private static Integer idCounter = 1;
     private Integer id;
     private LocalDateTime data;
     private Double total;
@@ -17,20 +18,16 @@ public class Venda {
 
     private List<Produto> produtos = new ArrayList<>();
 
-    public Venda(Integer id, LocalDateTime data, Cliente cliente, Double total) {
-        this.id = id;
+    public Venda(LocalDateTime data, Cliente cliente, Double total) {
+        this.id = idCounter++;
         this.data = data;
         this.cliente = cliente;
         this.total = total;
-        this.status = status.PENDENTE;
+        this.status = Status.PENDENTE;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public LocalDateTime getData() {
@@ -65,5 +62,27 @@ public class Venda {
         this.status = status;
     }
 
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
 
+    public void adicionarProduto(Produto produto) {
+        this.produtos.add(produto);
+    }
+
+    public void removerProduto(Produto produto) {
+        this.produtos.remove(produto);
+    }
+
+    @Override
+    public String toString() {
+        return "Venda{" +
+                "id=" + id +
+                ", data=" + data +
+                ", total=" + total +
+                ", status=" + status +
+                ", cliente=" + cliente +
+                ", produtos=" + produtos +
+                '}';
+    }
 }

@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Cliente {
 
+    private static Integer idCounter = 1;
     private Integer id;
     private String nome;
     private String cpf;
@@ -14,20 +15,17 @@ public class Cliente {
     private String sexo;
 
     private Endereco endereco;
-    private Carrinho carrinho;
 
-    private List<Papel> papeis = new ArrayList<>();
     private List<Venda> vendas = new ArrayList<>();
 
-    public Cliente(Integer id, String nome, String cpf, String email, String senha, String sexo, Endereco endereco, Carrinho carrinho) {
-        this.id = id;
+    public Cliente(String nome, String cpf, String email, String senha, String sexo, Endereco endereco) {
+        this.id = idCounter++;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
         this.sexo = sexo;
         this.endereco = endereco;
-        this.carrinho = carrinho;
     }
 
     public Integer getId() {
@@ -86,20 +84,8 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public Carrinho getCarrinho() {
-        return carrinho;
-    }
-
-    public void setCarrinho(Carrinho carrinho) {
-        this.carrinho = carrinho;
-    }
-
-    public void setPapeis(List<Papel> papeis) {
-        this.papeis = papeis;
-    }
-
-    public List<Papel> getPapeis() {
-        return papeis;
+    public List<Venda> getVendas() {
+        return vendas;
     }
 
     public void adicionarVenda(Venda venda) {

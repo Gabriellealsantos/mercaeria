@@ -1,7 +1,7 @@
 package br.edu.ifba.saj.fwads;
 
-import java.io.IOException;
-
+import br.edu.ifba.saj.fwads.model.entities.*;
+import br.edu.ifba.saj.fwads.model.service.CarrinhoService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * JavaFX App
@@ -23,7 +26,36 @@ public class App extends Application {
         loader = new FXMLLoader(App.class.getResource("controller/gui/Login.fxml"));
         scene = new Scene(loader.load(), 800, 600);
         stage.setScene(scene);
+        stage.setTitle("Mercearia");
         stage.show();
+
+        // Criando cliente
+        Endereco endereco = new Endereco("Rua A", "123", "Apto 101", "Centro", "Cidade X");
+        Cliente cliente = new Cliente("João", "12345678901", "joao@mail.com", "senha123", "M", endereco);
+
+        // Criando produtos
+        Produto arroz = new Alimento("Arroz", 5.50, "Arroz branco", LocalDate.now().plusMonths(6), null, "Grão");
+        Produto feijao = new Alimento( "Feijão", 6.80, "Feijão preto", LocalDate.now().plusMonths(6), null, "Grão");
+
+        // Criando carrinho
+        Carrinho carrinho = new Carrinho(cliente);
+        carrinho.adicionarProduto(arroz);
+        carrinho.adicionarProduto(feijao);
+
+        // Criando serviço de carrinho e realizando a compra
+        CarrinhoService carrinhoService = new CarrinhoService(carrinho);
+        carrinhoService.realizarCompra();
+
+        System.out.println("Cliente: " + cliente.getNome());
+        System.out.println("Produtos: ");
+        for (Produto p : carrinho.getProdutos()) {
+            System.out.println(" - " + p.getNome() + ": R$" + p.getPreco());
+        }
+
+        System.out.println("Total: R$" + carrinhoService.calcularTotal());
+        System.out.println("Vendas do cliente: " + cliente.getVendas().size());
+
+
     }
 
     public static Object getController() {
@@ -53,5 +85,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+
 
 }

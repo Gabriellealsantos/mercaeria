@@ -16,28 +16,19 @@ public class Carrinho {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
     public List<Produto> getProdutos() {
         return produtos;
     }
 
     public void adicionarProduto(Produto produto) {
-        produtos.add(produto);
+        this.produtos.add(produto);
     }
-
 
     public void removerProduto(Produto produto) {
-        produtos.remove(produto);
+        this.produtos.remove(produto);
     }
 
-    public double calcularTotal() {
-        double total = 0.0;
-        for (Produto produto : produtos) {
-            total += produto.getPreco();
-        }
-        return total;
-    }
+
+
+
 }

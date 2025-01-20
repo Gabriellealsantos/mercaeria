@@ -3,9 +3,11 @@ package br.edu.ifba.saj.fwads.model.entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Produto {
 
+    private static Integer idCounter = 1;
     private Integer id;
     private String nome;
     private Double preco;
@@ -16,8 +18,8 @@ public abstract class Produto {
 
     private List<Venda> vendas = new ArrayList<>();
 
-    public Produto(Integer id, String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque) {
-        this.id = id;
+    public Produto(String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque) {
+        this.id = idCounter++;
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -73,7 +75,40 @@ public abstract class Produto {
         this.estoque = estoque;
     }
 
-    public List<Venda> addVendas() {
+    public List<Venda> getVendas() {
         return vendas;
+    }
+
+    public void adicionarVenda(Venda venda) {
+        this.vendas.add(venda);
+    }
+
+    public void removerVenda(Venda venda) {
+        this.vendas.remove(venda);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Produto produto = (Produto) o;
+        return Objects.equals(id, produto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", descricao='" + descricao + '\'' +
+                ", dataValidade=" + dataValidade +
+                ", estoque=" + estoque +
+                ", vendas=" + vendas +
+                '}';
     }
 }
