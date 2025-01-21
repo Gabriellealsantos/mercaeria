@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #111111;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label contentDisplay="CENTER" prefHeight="75.0" prefWidth="614.0" text="Sobre o Projeto" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="220.0" top="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="18.0" prefWidth="398.0" text="Bem-vindo ao sistema de gestão de estoque para mercearias!" textFill="#ebe8e8">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="4.0" prefWidth="580.0" text="Este projeto foi desenvolvido como parte de um trabalho acadêmico, utilizando Java e JavaFX " textFill="#f2eaea">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="para criar uma aplicação desktop simples, sem a necessidade de frameworks " textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="adicionais ou persistência de dados." textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="22.0" prefWidth="580.0" text="Funcionalidades Principais:" textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" top="15.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="Gerenciamento de produtos: listagem." textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="Controle de estoque: visualização de quantidade disponível de cada produto." textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="Simulação de carrinho de compras e registro de vendas." textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="22.0" prefWidth="580.0" text="Objetivos:" textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" top="15.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="te sistema foi desenvolvido como parte do projeto final do 3º semestre do curso de " textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" top="15.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="0.0" prefWidth="580.0" text="Análise e Desenvolvimento de Sistemas do IFBA, campus Santo Antônio de Jesus." textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="22.0" prefWidth="580.0" text="Obrigado por usar este sistema!" textFill="#f2eaea">
+         <padding>
+            <Insets left="10.0" top="15.0" />
+         </padding>
+      </Label>
+   </children>
+</VBox>

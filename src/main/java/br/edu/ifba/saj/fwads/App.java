@@ -18,14 +18,14 @@ import java.time.LocalDate;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private static Scene mainScene;
     private static FXMLLoader loader;
 
     @Override
     public void start(Stage stage) throws IOException {
         loader = new FXMLLoader(App.class.getResource("controller/gui/Login.fxml"));
-        scene = new Scene(loader.load(), 800, 600);
-        stage.setScene(scene);
+        mainScene = new Scene(loader.load(), 1000, 800);
+        stage.setScene(mainScene);
         stage.setTitle("Mercearia");
         stage.show();
 
@@ -58,12 +58,16 @@ public class App extends Application {
 
     }
 
+    public static Scene getMainScene() {
+        return mainScene;
+    }
+
     public static Object getController() {
         return loader.getController();
     }
 
     public static void setRoot(String fxml) {
-        scene.setRoot(loadFXML(fxml));
+        mainScene.setRoot(loadFXML(fxml));
     }
 
     public static Parent loadFXML(String fxml) {
