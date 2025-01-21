@@ -37,6 +37,8 @@ public class App extends Application {
         Produto arroz = new Alimento("Arroz", 5.50, "Arroz branco", LocalDate.now().plusMonths(6), null, "Grão");
         Produto feijao = new Alimento( "Feijão", 6.80, "Feijão preto", LocalDate.now().plusMonths(6), null, "Grão");
 
+
+
         // Criando carrinho
         Carrinho carrinho = new Carrinho(cliente);
         carrinho.adicionarProduto(arroz);
@@ -53,8 +55,6 @@ public class App extends Application {
         }
 
         System.out.println("Total: R$" + carrinhoService.calcularTotal());
-        System.out.println("Vendas do cliente: " + cliente.getVendas().size());
-
 
     }
 

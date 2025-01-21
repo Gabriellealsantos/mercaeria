@@ -18,18 +18,16 @@ public class CarrinhoService {
 
         System.out.println("Total da compra: " + total);
 
-
         VendaService vendaService = new VendaService();
 
-
         Venda venda = vendaService.registrarVenda(carrinho.getCliente(), carrinho.getProdutos(), total);
+
 
         if (venda != null) {
             System.out.println("Venda realizada com sucesso!");
         } else {
             System.out.println("Erro ao registrar a venda!");
         }
-
 
         limparCarrinho();
         System.out.println("Carrinho limpo após a compra.");
@@ -40,11 +38,11 @@ public class CarrinhoService {
     }
 
     public void adicionarProduto(Produto produto) {
-        carrinho.getProdutos().add(produto);
+        carrinho.adicionarProduto(produto);
     }
 
     public void removerProduto(Produto produto) {
-        carrinho.getProdutos().remove(produto);
+        carrinho.removerProduto(produto);
     }
 
     public double calcularTotal() {

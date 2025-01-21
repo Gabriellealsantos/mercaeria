@@ -1,8 +1,6 @@
 package br.edu.ifba.saj.fwads.model.entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public abstract class Produto {
@@ -16,8 +14,6 @@ public abstract class Produto {
 
     private Estoque estoque;
 
-    private List<Venda> vendas = new ArrayList<>();
-
     public Produto(String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque) {
         this.id = idCounter++;
         this.nome = nome;
@@ -29,10 +25,6 @@ public abstract class Produto {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -75,18 +67,6 @@ public abstract class Produto {
         this.estoque = estoque;
     }
 
-    public List<Venda> getVendas() {
-        return vendas;
-    }
-
-    public void adicionarVenda(Venda venda) {
-        this.vendas.add(venda);
-    }
-
-    public void removerVenda(Venda venda) {
-        this.vendas.remove(venda);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -108,7 +88,6 @@ public abstract class Produto {
                 ", descricao='" + descricao + '\'' +
                 ", dataValidade=" + dataValidade +
                 ", estoque=" + estoque +
-                ", vendas=" + vendas +
                 '}';
     }
 }

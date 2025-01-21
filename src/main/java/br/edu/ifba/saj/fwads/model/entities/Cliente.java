@@ -16,8 +16,6 @@ public class Cliente {
 
     private Endereco endereco;
 
-    private List<Venda> vendas = new ArrayList<>();
-
     public Cliente(String nome, String cpf, String email, String senha, String sexo, Endereco endereco) {
         this.id = idCounter++;
         this.nome = nome;
@@ -84,18 +82,6 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public List<Venda> getVendas() {
-        return vendas;
-    }
-
-    public void adicionarVenda(Venda venda) {
-        this.vendas.add(venda);
-    }
-
-    public void removerVenda(Venda venda) {
-        this.vendas.remove(venda);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -115,6 +101,8 @@ public class Cliente {
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", sexo='" + sexo + '\'' +
                 ", endereco=" + endereco +
                 '}';
     }

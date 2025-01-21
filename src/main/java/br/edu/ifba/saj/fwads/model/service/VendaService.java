@@ -19,6 +19,7 @@ public class VendaService {
         }
         venda.setStatus(Status.PAGO);
 
+
         System.out.println("Venda registrada com sucesso: " + venda);
 
         return venda;
