@@ -18,6 +18,9 @@ public class Venda {
 
     private List<Produto> produtos = new ArrayList<>();
 
+    public Venda() {
+    }
+
     public Venda(LocalDateTime data, Cliente cliente, Double total) {
         this.id = idCounter++;
         this.data = data;

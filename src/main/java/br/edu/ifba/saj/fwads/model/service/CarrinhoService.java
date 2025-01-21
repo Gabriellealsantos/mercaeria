@@ -18,12 +18,13 @@ public class CarrinhoService {
 
         System.out.println("Total da compra: " + total);
 
+
         VendaService vendaService = new VendaService();
 
-        Venda venda = vendaService.registrarVenda(carrinho.getCliente(), carrinho.getProdutos(), total);
+        vendaService.registrarVenda(carrinho.getCliente(), carrinho.getProdutos(), total);
 
 
-        if (venda != null) {
+        if (vendaService != null) {
             System.out.println("Venda realizada com sucesso!");
         } else {
             System.out.println("Erro ao registrar a venda!");
