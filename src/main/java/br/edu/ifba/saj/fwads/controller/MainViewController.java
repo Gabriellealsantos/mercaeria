@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
-public class MasterController {
+public class MainViewController {
 
     @FXML
     private BorderPane masterPane;

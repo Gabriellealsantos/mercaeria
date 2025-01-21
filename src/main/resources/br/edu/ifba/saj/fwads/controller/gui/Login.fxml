@@ -23,9 +23,9 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: green;">
+      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: black;">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #2c2d2d;">
                <children>
                   <ImageView fitHeight="336.0" fitWidth="337.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -52,7 +52,7 @@
                   </Label>
                   <TextField fx:id="txtUsuario" layoutX="39.0" layoutY="117.0" prefHeight="35.0" prefWidth="245.0" promptText="usuário" stylesheets="@../assets/style.css" />
                   <PasswordField fx:id="txtSenha" layoutX="39.0" layoutY="174.0" prefHeight="35.0" prefWidth="245.0" promptText="senha" stylesheets="@../assets/style.css" />
-                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" styleClass="btn-cancelar" stylesheets="@../assets/style.css" text="Cancelar" textFill="WHITE">
+                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: RED;" styleClass="btn-cancelar" stylesheets="@../assets/style.css" text="Cancelar" textFill="#030303">
                      <font>
                         <Font size="16.0" />
                      </font>
