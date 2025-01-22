@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class MainViewController {
 
@@ -44,12 +45,19 @@ public class MainViewController {
 
     @FXML
     void logOff(MouseEvent event) {
-        Alert alert = new Alert(AlertType.CONFIRMATION, "Deseja realmente sair??", ButtonType.YES, ButtonType.NO);
-        alert.showAndWait()
-                .filter(response -> response == ButtonType.YES)
-                .ifPresent(response -> {
+        Optional<ButtonType> result = Alerts.showConfirmation("Sair", "Deseja realmente sair?");
 
-                });
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+
+            System.out.println("Usuário confirmou a saída!");
+
+            App.setRoot("controller/gui/Login.fxml");
+
+        } else {
+
+            System.out.println("Usuário cancelou a saída!");
+        }
     }
 
     public void setEmail(String email) {
