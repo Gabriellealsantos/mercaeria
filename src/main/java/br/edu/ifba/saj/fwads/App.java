@@ -26,6 +26,7 @@ public class App extends Application {
         loader = new FXMLLoader(App.class.getResource("controller/gui/Login.fxml"));
         mainScene = new Scene(loader.load(), 1000, 800);
         stage.setScene(mainScene);
+        stage.setScene(mainScene);
         stage.setTitle("Mercearia");
         stage.show();
 

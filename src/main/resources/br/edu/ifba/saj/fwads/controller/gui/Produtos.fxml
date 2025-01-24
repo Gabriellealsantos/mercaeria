@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<VBox style="-fx-background-color: #111111;" styleClass="main" stylesheets="@../assets/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ProdutosController">
+   <children>
+      <TableView fx:id="tableViewProduto" styleClass="table-view" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="colIdProduto" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="colNomeProduto" prefWidth="119.0" text="NOME" />
+            <TableColumn fx:id="colPrecoProduto" prefWidth="56.0" text="PRECO" />
+            <TableColumn prefWidth="106.0" text="QUANTIDADE" />
+            <TableColumn fx:id="colDataDeValidadeProduto" prefWidth="199.0" text="DATA DE VALIDADE" />
+            <TableColumn fx:id="colDescricaoProduto" prefWidth="169.0" text="DESCRICAO" />
+            <TableColumn fx:id="colTipoProduto" prefWidth="59.0" text="TIPO" />
+         </columns>
+      </TableView>
+   </children>
+</VBox>

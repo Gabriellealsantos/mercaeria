@@ -1,6 +1,7 @@
 module br.edu.ifba.saj.fwads {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jdk.compiler;
 
     opens br.edu.ifba.saj.fwads.controller to javafx.fxml;
     opens br.edu.ifba.saj.fwads.model.entities to javafx.base, javafx.fxml;

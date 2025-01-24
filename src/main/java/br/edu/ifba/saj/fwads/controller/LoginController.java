@@ -27,7 +27,7 @@ public class LoginController {
     private Button btnEntra;
 
     @FXML
-    public void entrar(ActionEvent event) {
+    public void onBtEntrar(ActionEvent event) {
         try {
             Cliente cliente = new ClienteSerivce().login(txtUsuario.getText(), txtSenha.getText());
             App.setRoot("controller/gui/MainView.fxml");
@@ -39,7 +39,7 @@ public class LoginController {
     }
 
     @FXML
-    void limparCampos(ActionEvent event) {
+    void onBtLimparCampos(ActionEvent event) {
         txtUsuario.clear();
         txtSenha.clear();
     }

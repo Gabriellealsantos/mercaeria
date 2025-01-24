@@ -52,12 +52,12 @@
                   </Label>
                   <TextField fx:id="txtUsuario" layoutX="39.0" layoutY="117.0" prefHeight="35.0" prefWidth="245.0" promptText="usuário" stylesheets="@../assets/style.css" />
                   <PasswordField fx:id="txtSenha" layoutX="39.0" layoutY="174.0" prefHeight="35.0" prefWidth="245.0" promptText="senha" stylesheets="@../assets/style.css" />
-                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: RED;" styleClass="btn-cancelar" stylesheets="@../assets/style.css" text="Cancelar" textFill="#030303">
+                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#onBtLimparCampos" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: RED;" styleClass="btn-cancelar" stylesheets="@../assets/style.css" text="Cancelar" textFill="#030303">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnEntra" defaultButton="true" layoutX="39.0" layoutY="232.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="120.0" styleClass="btn-login" stylesheets="@../assets/style.css" text="Entrar" textFill="WHITE">
+                  <Button fx:id="btnEntra" defaultButton="true" layoutX="39.0" layoutY="232.0" mnemonicParsing="false" onAction="#onBtEntrar" prefHeight="35.0" prefWidth="120.0" styleClass="btn-login" stylesheets="@../assets/style.css" text="Entrar" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
