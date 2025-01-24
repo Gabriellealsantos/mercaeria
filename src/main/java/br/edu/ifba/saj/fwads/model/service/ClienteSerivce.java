@@ -16,7 +16,7 @@ public class ClienteSerivce {
 
         Endereco endereco = new Endereco("Rua das Flores ", "123", "Perto do centro", "avenida edgar santos", "Sapeaçu");
 
-        Cliente cliente = new Cliente("Gabriel", "088.278.365-35", "1", "1", "Masculino", endereco);
+        Cliente cliente = new Cliente(1,"Gabriel", "088.278.365-35", "1", "1", "Masculino", endereco);
 
         listaCliente.add(cliente);
 

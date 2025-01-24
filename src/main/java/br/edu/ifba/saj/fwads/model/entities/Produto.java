@@ -5,7 +5,6 @@ import java.util.Objects;
 
 public abstract class Produto {
 
-    private static Integer idCounter = 1;
     private Integer id;
     private String nome;
     private Double preco;
@@ -14,8 +13,8 @@ public abstract class Produto {
 
     private Estoque estoque;
 
-    public Produto(String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque) {
-        this.id = idCounter++;
+    public Produto(Integer id,String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque) {
+        this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;

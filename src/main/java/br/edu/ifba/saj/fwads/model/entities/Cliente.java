@@ -16,8 +16,8 @@ public class Cliente {
 
     private Endereco endereco;
 
-    public Cliente(String nome, String cpf, String email, String senha, String sexo, Endereco endereco) {
-        this.id = idCounter++;
+    public Cliente(Integer id, String nome, String cpf, String email, String senha, String sexo, Endereco endereco) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;

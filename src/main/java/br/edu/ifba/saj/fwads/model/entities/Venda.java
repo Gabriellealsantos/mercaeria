@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Venda {
 
-    private static Integer idCounter = 1;
     private Integer id;
     private LocalDateTime data;
     private Double total;
@@ -21,8 +20,8 @@ public class Venda {
     public Venda() {
     }
 
-    public Venda(LocalDateTime data, Cliente cliente, Double total) {
-        this.id = idCounter++;
+    public Venda(Integer id, LocalDateTime data, Cliente cliente, Double total) {
+        this.id = id;
         this.data = data;
         this.cliente = cliente;
         this.total = total;

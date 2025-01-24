@@ -6,8 +6,8 @@ public class Alimento extends Produto {
 
     private String tipo;
 
-    public Alimento(String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque, String tipo) {
-        super(nome, preco, descricao, dataValidade, estoque);
+    public Alimento(Integer id, String nome, Double preco, String descricao, LocalDate dataValidade, Estoque estoque, String tipo) {
+        super(id, nome, preco, descricao, dataValidade, estoque);
         this.tipo = tipo;
     }
 

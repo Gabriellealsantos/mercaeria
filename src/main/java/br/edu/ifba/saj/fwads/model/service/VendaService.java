@@ -10,7 +10,7 @@ import java.util.List;
 
 public class VendaService {
     public Venda registrarVenda(Cliente cliente, List<Produto> produtoList, Double total) {
-        Venda venda = new Venda(LocalDateTime.now(), cliente, total);
+        Venda venda = new Venda(1, LocalDateTime.now(), cliente, total);
         for (Produto produto : produtoList) {
             venda.adicionarProduto(produto);
         }

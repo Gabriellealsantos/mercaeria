@@ -32,11 +32,11 @@ public class App extends Application {
 
         // Criando cliente
         Endereco endereco = new Endereco("Rua A", "123", "Apto 101", "Centro", "Cidade X");
-        Cliente cliente = new Cliente("João", "12345678901", "joao@mail.com", "senha123", "M", endereco);
+        Cliente cliente = new Cliente(1,"João", "12345678901", "joao@mail.com", "senha123", "M", endereco);
 
         // Criando produtos
-        Produto arroz = new Alimento("Arroz", 5.50, "Arroz branco", LocalDate.now().plusMonths(6), null, "Grão");
-        Produto feijao = new Alimento( "Feijão", 6.80, "Feijão preto", LocalDate.now().plusMonths(6), null, "Grão");
+        Produto arroz = new Alimento(1,"Arroz", 5.50, "Arroz branco", LocalDate.now().plusMonths(6), null, "Grão");
+        Produto feijao = new Alimento( 2,"Feijão", 6.80, "Feijão preto", LocalDate.now().plusMonths(6), null, "Grão");
 
 
 
