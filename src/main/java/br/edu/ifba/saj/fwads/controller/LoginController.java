@@ -33,6 +33,7 @@ public class LoginController {
             App.setRoot("controller/gui/MainView.fxml");
             MainViewController controller = (MainViewController) App.getController();
             controller.setEmail(cliente.getEmail());
+            controller.setClienteService(new ClienteSerivce());
         } catch (LoginInvalidoException e) {
             Alerts.showAlert("Login invalido", "Login ou senha inválidos. Por favor, verifique as informações e tente novamente.", "Erro de Login", AlertType.ERROR);
         }

@@ -15,6 +15,7 @@
             <TableColumn fx:id="colDataDeValidadeProduto" prefWidth="199.0" text="DATA DE VALIDADE" />
             <TableColumn fx:id="colDescricaoProduto" prefWidth="169.0" text="DESCRICAO" />
             <TableColumn fx:id="colTipoProduto" prefWidth="59.0" text="TIPO" />
+            <TableColumn fx:id="colAddCarrinhoProduto" prefWidth="169.0" />
          </columns>
       </TableView>
    </children>

@@ -2,6 +2,10 @@ package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;
 import br.edu.ifba.saj.fwads.controller.util.Alerts;
+import br.edu.ifba.saj.fwads.model.entities.Carrinho;
+import br.edu.ifba.saj.fwads.model.entities.Cliente;
+import br.edu.ifba.saj.fwads.model.service.CarrinhoService;
+import br.edu.ifba.saj.fwads.model.service.ClienteSerivce;
 import br.edu.ifba.saj.fwads.model.service.ProdutoService;
 import com.sun.tools.javac.Main;
 import javafx.css.PseudoClass;
@@ -30,6 +34,8 @@ import java.util.function.Consumer;
 
 public class MainViewController implements Initializable {
 
+    private ClienteSerivce clienteService;
+
     @FXML
     private Label userEmail;
 
@@ -38,6 +44,14 @@ public class MainViewController implements Initializable {
 
     @FXML
     private Button btnSobre;
+
+    public void setEmail(String email) {
+        userEmail.setText(email);
+    }
+
+    public void setClienteService(ClienteSerivce clienteService) {
+        this.clienteService = clienteService;
+    }
 
 
     @FXML
@@ -49,6 +63,7 @@ public class MainViewController implements Initializable {
     public void onBtProdutos(){
         loadView("gui/Produtos.fxml", (ProdutosController controller) -> {
             controller.setProdutoService(new ProdutoService());
+            controller.setCarrinhoService(new CarrinhoService(new Carrinho(clienteService.getCliente())));
             controller.updateTableView();
         });
 
@@ -73,9 +88,6 @@ public class MainViewController implements Initializable {
         }
     }
 
-    public void setEmail(String email) {
-        userEmail.setText(email);
-    }
 
     private synchronized <T> void loadView(String absoluteName, Consumer<T> acaoDeInicializacao) {
         try {

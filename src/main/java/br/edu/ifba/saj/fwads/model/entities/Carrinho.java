@@ -29,7 +29,11 @@ public class Carrinho {
         this.produtos.remove(produto);
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Carrinho{" +
+                "cliente=" + cliente +
+                ", produtos=" + produtos +
+                '}';
+    }
 }

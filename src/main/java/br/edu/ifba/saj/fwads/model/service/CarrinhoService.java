@@ -2,7 +2,6 @@ package br.edu.ifba.saj.fwads.model.service;
 
 import br.edu.ifba.saj.fwads.model.entities.Carrinho;
 import br.edu.ifba.saj.fwads.model.entities.Produto;
-import br.edu.ifba.saj.fwads.model.entities.Venda;
 
 public class CarrinhoService {
 
@@ -40,6 +39,8 @@ public class CarrinhoService {
 
     public void adicionarProduto(Produto produto) {
         carrinho.adicionarProduto(produto);
+        System.out.println("Produto adicionado ao carrinho: " + produto);
+        System.out.println("Produto adicionado ao carrinho: " + carrinho);
     }
 
     public void removerProduto(Produto produto) {
