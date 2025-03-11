@@ -11,15 +11,15 @@ public class Cliente extends AbstractModel<UUID> {
     private String cpf;
     private String telefone;
     private String sexo;
-    private Endereco enderecos;
+    private List<Endereco> enderecos;
     private List<Venda> vendas;
 
-    public Cliente(String nome, String cpf, String telefone, String sexo, Endereco enderecos) {
+    public Cliente(String nome, String cpf, String telefone, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.sexo = sexo;
-        this.enderecos = enderecos;
+        this.enderecos = new ArrayList<>();
         this.vendas = new ArrayList<>();
     }
 
@@ -55,12 +55,12 @@ public class Cliente extends AbstractModel<UUID> {
         this.sexo = sexo;
     }
 
-    public Endereco getEnderecos() {
-        return enderecos;
+    public void adicionarEndereco(Endereco endereco) {
+        this.enderecos.add(endereco);
     }
 
-    public void setEnderecos(Endereco enderecos) {
-        this.enderecos = enderecos;
+    public void adicionarVenda(Venda venda) {
+        this.vendas.add(venda);
     }
 
     public List<Venda> listaDeVendas() {

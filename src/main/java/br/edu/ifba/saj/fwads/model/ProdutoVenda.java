@@ -4,14 +4,24 @@ import java.util.UUID;
 
 public class ProdutoVenda extends AbstractModel<UUID> {
 
+    private Venda venda;
     private Produto produto;
     private int quantidade;
     private double precoVenda;
 
-    public ProdutoVenda(Produto produto, int quantidade, double precoVenda) {
+    public ProdutoVenda(Venda venda, Produto produto, int quantidade, double precoVenda) {
+        this.venda = venda;
         this.produto = produto;
         this.quantidade = quantidade;
         this.precoVenda = precoVenda;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
 
     public Produto getProduto() {

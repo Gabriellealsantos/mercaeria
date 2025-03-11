@@ -36,9 +36,22 @@ public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
         }
     }
 
+    public void cancelar() {
+        if (this.status == Status.PAGO || this.status == Status.PENDENTE) {
+            for (ProdutoVenda produtoVenda : produtos) {
+                produtoVenda.getProduto().aumentarEstoque(produtoVenda.getQuantidade());
+            }
+
+            this.status = Status.CANCELADA;
+            setUpdatedAt(LocalDateTime.now());
+        }
+    }
+
     public void adicionarProduto(ProdutoVenda produtoVenda) {
+        produtoVenda.setVenda(this);
         produtos.add(produtoVenda);
         total += produtoVenda.getPrecoVenda() * produtoVenda.getQuantidade();
+        produtoVenda.getProduto().reduzirEstoque(produtoVenda.getQuantidade());
     }
 
     public void removerProduto(ProdutoId idProduto) {
@@ -53,4 +66,3 @@ public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
         return total;
     }
 }
-

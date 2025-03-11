@@ -4,7 +4,7 @@ import br.edu.ifba.saj.fwads.model.Venda;
 
 import java.util.UUID;
 
-public class VendaDAO extends GenericDAOImpl<Venda, UUID> {
+public class VendaDAO extends GenericDAOImpl<Venda<UUID, UUID>, UUID> {
 
     public VendaDAO() {
         super(UUID.class);
