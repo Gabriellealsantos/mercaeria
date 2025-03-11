@@ -1,27 +1,26 @@
 package br.edu.ifba.saj.fwads.model;
 
-public class Cliente {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
-    private int id;
+public class Cliente extends AbstractModel<UUID> {
+
     private String nome;
     private String cpf;
-    private String email;
-    private String senha;
+    private String telefone;
     private String sexo;
     private Endereco enderecos;
+    private List<Venda> vendas;
 
-    public Cliente(int id, String nome, String cpf, String email, String senha, String sexo, Endereco enderecos) {
-        this.id = id;
+    public Cliente(String nome, String cpf, String telefone, String sexo, Endereco enderecos) {
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
-        this.senha = senha;
+        this.telefone = telefone;
         this.sexo = sexo;
         this.enderecos = enderecos;
-    }
-
-    public int getId() {
-        return id;
+        this.vendas = new ArrayList<>();
     }
 
     public String getNome() {
@@ -40,20 +39,12 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getSexo() {
@@ -71,4 +62,9 @@ public class Cliente {
     public void setEnderecos(Endereco enderecos) {
         this.enderecos = enderecos;
     }
+
+    public List<Venda> listaDeVendas() {
+        return Collections.unmodifiableList(vendas);
+    }
+
 }

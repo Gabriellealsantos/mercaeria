@@ -1,25 +1,17 @@
 package br.edu.ifba.saj.fwads.model;
 
-public class ProdutoVenda {
+import java.util.UUID;
 
-    private long id;
+public class ProdutoVenda extends AbstractModel<UUID> {
+
     private Produto produto;
     private int quantidade;
     private double precoVenda;
 
-    public ProdutoVenda(long id, Produto produto, int quantidade, double precoVenda) {
-        this.id = id;
+    public ProdutoVenda(Produto produto, int quantidade, double precoVenda) {
         this.produto = produto;
         this.quantidade = quantidade;
         this.precoVenda = precoVenda;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public Produto getProduto() {

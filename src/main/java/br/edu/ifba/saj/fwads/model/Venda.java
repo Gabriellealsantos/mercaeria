@@ -5,23 +5,26 @@ import br.edu.ifba.saj.fwads.model.enums.Status;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class Venda {
+public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
 
-    private long id;
     private LocalDateTime data;
     private double total;
     private Status status;
-    private Cliente cliente;
+    private ClienteId clienteId;
     private List<ProdutoVenda> produtos;
 
-    public Venda(long id, Cliente cliente) {
-        this.id = id;
+    public Venda(ClienteId clienteId) {
         this.data = LocalDateTime.now();
         this.total = 0.0;
         this.status = Status.PENDENTE;
-        this.cliente = cliente;
+        this.clienteId = clienteId;
         this.produtos = new ArrayList<>();
+    }
+
+    public ClienteId getClienteId() {
+        return clienteId;
     }
 
     public void registrarVenda() {
@@ -38,8 +41,8 @@ public class Venda {
         total += produtoVenda.getPrecoVenda() * produtoVenda.getQuantidade();
     }
 
-    public void removerProduto(long idProduto) {
-        produtos.removeIf(produto -> produto.getProduto().getId() == idProduto);
+    public void removerProduto(ProdutoId idProduto) {
+        produtos.removeIf(produto -> produto.getProduto().getId().equals(idProduto));
     }
 
     public void atualizarStatus(Status novoStatus) {

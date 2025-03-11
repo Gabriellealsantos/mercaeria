@@ -7,6 +7,7 @@ package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.App;
 import br.edu.ifba.saj.fwads.exception.LoginInvalidoException;
 import br.edu.ifba.saj.fwads.model.Cliente;
+import br.edu.ifba.saj.fwads.model.Usuario;
 import br.edu.ifba.saj.fwads.negocio.ValidaUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,10 +28,10 @@ public class LoginController {
     void entrar(ActionEvent event) {
         ValidaUsuario validaUsuario = new ValidaUsuario();
         try {
-            Cliente usuario = validaUsuario.login(txUsuario.getText(), txSenha.getText());
+            Usuario usuario = validaUsuario.login(txUsuario.getText(), txSenha.getText());
             App.setRoot("controller/Master.fxml");
             MasterController controller =  (MasterController)App.getController();
-            controller.setEmail(usuario.getEmail());
+            controller.setEmail(usuario.getUsuario());
         } catch (LoginInvalidoException e) {
             new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
         }

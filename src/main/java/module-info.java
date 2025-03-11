@@ -7,6 +7,8 @@ module br.edu.ifba.saj.fwads {
     
     exports br.edu.ifba.saj.fwads;
     exports br.edu.ifba.saj.fwads.model;
+    exports br.edu.ifba.saj.fwads.DAO;
+    opens br.edu.ifba.saj.fwads.DAO to javafx.base, javafx.fxml;
 
-    
+
 }

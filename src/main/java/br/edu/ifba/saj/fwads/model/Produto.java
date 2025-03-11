@@ -1,10 +1,10 @@
 package br.edu.ifba.saj.fwads.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
-public class Produto {
+public class Produto extends AbstractModel<UUID> {
 
-    private long id;
     private String nome;
     private double preco;
     private String descricao;
@@ -12,8 +12,7 @@ public class Produto {
     private UnidadeMedida unidade;
     private int estoque;
 
-    public Produto(long id, String nome, double preco, String descricao, LocalDate dataValidade, UnidadeMedida unidade, int estoque) {
-        this.id = id;
+    public Produto(String nome, double preco, String descricao, LocalDate dataValidade, UnidadeMedida unidade, int estoque) {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -26,10 +25,6 @@ public class Produto {
         return LocalDate.now().isBefore(dataValidade);
     }
 
-    public long getId() {
-        return id;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -37,6 +32,11 @@ public class Produto {
     public double getPreco() {
         return preco;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
 
     public int getEstoque() {
         return estoque;
