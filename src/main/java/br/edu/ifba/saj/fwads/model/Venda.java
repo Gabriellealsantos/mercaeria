@@ -7,24 +7,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
+public class Venda<T> extends AbstractModel<UUID> {
 
     private LocalDateTime data;
     private double total;
     private Status status;
-    private ClienteId clienteId;
+    private T clienteId;
+    private T usuarioId;
     private List<ProdutoVenda> produtos;
 
-    public Venda(ClienteId clienteId) {
+    public Venda(T clienteId, T usuarioId) {
         this.data = LocalDateTime.now();
         this.total = 0.0;
         this.status = Status.PENDENTE;
         this.clienteId = clienteId;
+        this.usuarioId = usuarioId;
         this.produtos = new ArrayList<>();
     }
 
-    public ClienteId getClienteId() {
+    public T getClienteId() {
         return clienteId;
+    }
+
+    public T getUsuarioId() {
+        return usuarioId;
     }
 
     public void registrarVenda() {
@@ -54,7 +60,7 @@ public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
         produtoVenda.getProduto().reduzirEstoque(produtoVenda.getQuantidade());
     }
 
-    public void removerProduto(ProdutoId idProduto) {
+    public void removerProduto(T idProduto) {
         produtos.removeIf(produto -> produto.getProduto().getId().equals(idProduto));
     }
 
@@ -65,4 +71,5 @@ public class Venda<ClienteId, ProdutoId> extends AbstractModel<UUID> {
     public double getTotal() {
         return total;
     }
+
 }

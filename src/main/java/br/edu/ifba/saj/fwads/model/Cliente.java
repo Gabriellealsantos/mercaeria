@@ -5,22 +5,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class Cliente extends AbstractModel<UUID> {
+public class Cliente<T> extends AbstractModel<UUID> {
 
     private String nome;
-    private String cpf;
+    private final String cpf;
     private String telefone;
     private String sexo;
     private List<Endereco> enderecos;
     private List<Venda> vendas;
+    private T usuarioId;
 
-    public Cliente(String nome, String cpf, String telefone, String sexo) {
+    public Cliente(String nome, String cpf, String telefone, String sexo, T usuarioId) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.sexo = sexo;
         this.enderecos = new ArrayList<>();
         this.vendas = new ArrayList<>();
+        this.usuarioId = usuarioId;
     }
 
     public String getNome() {
@@ -33,10 +35,6 @@ public class Cliente extends AbstractModel<UUID> {
 
     public String getCpf() {
         return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getTelefone() {
@@ -67,4 +65,7 @@ public class Cliente extends AbstractModel<UUID> {
         return Collections.unmodifiableList(vendas);
     }
 
+    public T getUsuarioId() {
+        return usuarioId;
+    }
 }

@@ -1,6 +1,5 @@
 package br.edu.ifba.saj.fwads;
 
-import br.edu.ifba.saj.fwads.model.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +9,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 /**
  * JavaFX App
