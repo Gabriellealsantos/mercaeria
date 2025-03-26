@@ -40,9 +40,4 @@ public class Usuario extends AbstractModel<UUID> {
     public List<Venda> listaDeVendas() {
         return Collections.unmodifiableList(vendas);
     }
-
-    public Cliente registrarCliente(String nome, String cpf, String telefone, String sexo) {
-        return new Cliente(nome, cpf, telefone, sexo, this.getId());
-    }
-
 }

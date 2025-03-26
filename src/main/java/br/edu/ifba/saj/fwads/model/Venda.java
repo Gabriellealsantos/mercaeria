@@ -10,7 +10,6 @@ import java.util.UUID;
 public class Venda<T> extends AbstractModel<UUID> {
 
     private LocalDateTime data;
-    private double total;
     private Status status;
     private T clienteId;
     private T usuarioId;
@@ -18,7 +17,6 @@ public class Venda<T> extends AbstractModel<UUID> {
 
     public Venda(T clienteId, T usuarioId) {
         this.data = LocalDateTime.now();
-        this.total = 0.0;
         this.status = Status.PENDENTE;
         this.clienteId = clienteId;
         this.usuarioId = usuarioId;
@@ -33,15 +31,6 @@ public class Venda<T> extends AbstractModel<UUID> {
         return usuarioId;
     }
 
-    public void registrarVenda() {
-        if (!produtos.isEmpty()) {
-            this.status = Status.PAGO;
-            System.out.println("Venda registrada com sucesso!");
-        } else {
-            System.out.println("Não é possível registrar uma venda sem produtos.");
-        }
-    }
-
     public void cancelar() {
         if (this.status == Status.PAGO || this.status == Status.PENDENTE) {
             for (ProdutoVenda produtoVenda : produtos) {
@@ -49,15 +38,12 @@ public class Venda<T> extends AbstractModel<UUID> {
             }
 
             this.status = Status.CANCELADA;
-            setUpdatedAt(LocalDateTime.now());
         }
     }
 
     public void adicionarProduto(ProdutoVenda produtoVenda) {
         produtoVenda.setVenda(this);
         produtos.add(produtoVenda);
-        total += produtoVenda.getPrecoVenda() * produtoVenda.getQuantidade();
-        produtoVenda.getProduto().reduzirEstoque(produtoVenda.getQuantidade());
     }
 
     public void removerProduto(T idProduto) {
@@ -66,10 +52,30 @@ public class Venda<T> extends AbstractModel<UUID> {
 
     public void atualizarStatus(Status novoStatus) {
         this.status = novoStatus;
+
+        if (novoStatus == Status.PAGO) {
+            finalizarVenda();
+        }
     }
 
-    public double getTotal() {
-        return total;
+    private void finalizarVenda() {
+        for (ProdutoVenda produtoVenda : produtos) {
+            produtoVenda.getProduto().reduzirEstoque(produtoVenda.getQuantidade());
+        }
     }
 
+    public void registrarVenda() {
+        if (!produtos.isEmpty()) {
+            finalizarVenda();
+            this.status = Status.PAGO;
+        } else {
+            throw new IllegalStateException("Não é possível registrar uma venda sem produtos.");
+        }
+    }
+
+    public double calculateTotal() {
+        return produtos.stream()
+                .mapToDouble(pv -> pv.getPrecoVenda() * pv.getQuantidade())
+                .sum();
+    }
 }

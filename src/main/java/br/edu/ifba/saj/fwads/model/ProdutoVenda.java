@@ -56,7 +56,7 @@ public class ProdutoVenda extends AbstractModel<UUID> {
         if (this.quantidade >= quantidade) {
             this.quantidade -= quantidade;
         } else {
-            System.out.println("Quantidade insuficiente no pedido!");
+            throw new IllegalArgumentException("Quantidade insuficiente no pedido!");
         }
     }
 

@@ -57,11 +57,11 @@ public class Produto extends AbstractModel<UUID> {
         }
     }
 
-    public void reduzirEstoque(int quantidade) {
-        if (quantidade <= estoque) {
+    void reduzirEstoque(int quantidade) {
+        if (quantidade <= estoque && quantidade > 0) {
             estoque -= quantidade;
         } else {
-            System.out.println("Estoque insuficiente!");
+            throw new IllegalArgumentException("Estoque insuficiente ou quantidade inválida!");
         }
     }
 }
