@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class GenericDAOImpl<T extends AbstractModel<ID>, ID> implements GenericDAO<T, ID> {
 
-    private Map<ID, T> bancoDeDados = new HashMap<>();
+    private final Map<ID, T> bancoDeDados = new HashMap<>();
 
     private final Class<ID> tipoIdClass;
 

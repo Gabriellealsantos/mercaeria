@@ -12,7 +12,7 @@ public class Cliente<T> extends AbstractModel<UUID> {
     private String telefone;
     private String sexo;
     private List<Endereco> enderecos;
-    private List<Venda> vendas;
+    private List<T> vendasIds;
     private T usuarioId;
 
     public Cliente(String nome, String cpf, String telefone, String sexo, T usuarioId) {
@@ -21,7 +21,7 @@ public class Cliente<T> extends AbstractModel<UUID> {
         this.telefone = telefone;
         this.sexo = sexo;
         this.enderecos = new ArrayList<>();
-        this.vendas = new ArrayList<>();
+        this.vendasIds = new ArrayList<>();
         this.usuarioId = usuarioId;
     }
 
@@ -57,15 +57,28 @@ public class Cliente<T> extends AbstractModel<UUID> {
         this.enderecos.add(endereco);
     }
 
-    public void adicionarVenda(Venda venda) {
-        this.vendas.add(venda);
+    public void adicionarVenda(T venda) {
+        this.vendasIds.add(venda);
     }
 
-    public List<Venda> listaDeVendas() {
-        return Collections.unmodifiableList(vendas);
+    public List<T> listaDeVendas() {
+        return Collections.unmodifiableList(vendasIds);
     }
 
     public T getUsuarioId() {
         return usuarioId;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", enderecos=" + enderecos +
+                ", vendas=" + vendasIds +
+                ", usuarioId=" + usuarioId +
+                '}';
     }
 }
